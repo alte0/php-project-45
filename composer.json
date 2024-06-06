@@ -1,0 +1,16 @@
+{
+  "name": "hexlet/code",
+  "type": false,
+  "autoload": {
+    "psr-4": {
+      "Hexlet\\Code\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Максим Дмитриев",
+      "email": "makc-dmv@yandex.ru"
+    }
+  ],
+  "require": {}
+}
