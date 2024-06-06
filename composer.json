@@ -1,6 +1,9 @@
 {
   "name": "hexlet/code",
-  "type": false,
+  "bin": [
+    "bin/brain-games"
+  ],
+  "type": "library",
   "autoload": {
     "psr-4": {
       "Hexlet\\Code\\": "src/"
@@ -9,8 +12,10 @@
   "authors": [
     {
       "name": "Максим Дмитриев",
-      "email": "makc-dmv@yandex.ru"
+      "email": "ctpagateji@yandex.ru"
     }
   ],
+  "description": "hexlet learn repository",
+  "license": "MIT",
   "require": {}
 }
