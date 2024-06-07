@@ -1,7 +1,8 @@
 {
   "name": "hexlet/code",
   "bin": [
-    "bin/brain-games"
+    "bin/brain-games",
+    "bin/brain-even"
   ],
   "type": "library",
   "autoload": {
@@ -9,7 +10,9 @@
       "Hexlet\\Code\\": "src/"
     },
     "files": [
-      "src/Cli.php"
+      "src/Cli.php",
+      "src/Engine.php",
+      "src/Brain-even.php"
     ]
   },
   "authors": [

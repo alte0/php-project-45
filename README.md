@@ -3,3 +3,4 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/7bb068ba693836ae90e9/maintainability)](https://codeclimate.com/github/alte0/php-project-45/maintainability)
 
 https://codeclimate.com
+[![asciicast](https://asciinema.org/a/TIwKqPw5BCUsk5eEPmvqR4tj8.svg)](https://asciinema.org/a/TIwKqPw5BCUsk5eEPmvqR4tj8)
