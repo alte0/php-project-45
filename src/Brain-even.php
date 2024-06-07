@@ -8,11 +8,10 @@ use function BrainGames\Engine\isNumberEven;
 use function cli\line;
 use function cli\prompt;
 
-function runBrainEven()
+function runBrainEven($numberCorrectAnswers = 3)
 {
     $runGame = true;
     $countCorrectAnswers = 0;
-    $numberCorrectAnswers = 3;
 
     $userName = greeting();
     line('Answer "yes" if the number is even, otherwise answer "no".');
@@ -26,7 +25,7 @@ function runBrainEven()
         $isAnswerAny = isAnswerAny($answer);
 
         if (isWrongAnswer($isNumEven, $answer, $isAnswerAny)) {
-            list($text1, $text2) = getWrongText($isNumEven, $answer, $isAnswerAny);
+            list($text1, $text2) = getTextForWrongAnswer($isNumEven, $answer, $isAnswerAny);
             line("'%s' is wrong answer ;(. Correct answer was '%s'.", $text1, $text2);
             line('Let\'s try again, %s!', $userName);
 
@@ -54,7 +53,7 @@ function isAnswerAny(string $answer): bool
     return !in_array($answer, $allowAnswers);
 }
 
-function getWrongText(int $isNumEven, string $answer, bool $isAnswerAny): array
+function getTextForWrongAnswer(int $isNumEven, string $answer, bool $isAnswerAny): array
 {
     if ($isAnswerAny || (!$isNumEven && $answer === 'yes')) {
         return ['yes', 'no'];
