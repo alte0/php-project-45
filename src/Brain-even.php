@@ -13,7 +13,6 @@ function runBrainEven()
     $runGame = true;
     $countCorrectAnswers = 0;
     $numberCorrectAnswers = 3;
-    $allowAnswers = ['yes', 'no'];
 
     $userName = greeting();
     line('Answer "yes" if the number is even, otherwise answer "no".');
@@ -24,21 +23,10 @@ function runBrainEven()
 
         line('Question: %s', $randomNum);
         $answer = trim(prompt('Your answer'));
+        $isAnswerAny = isAnswerAny($answer);
 
-        $isAnswerAny = !in_array($answer, $allowAnswers);
-        $isStopGame = false;
-
-        if ($isNumEven && $answer === 'no') {
-            $text1 = 'no';
-            $text2 = 'yes';
-            $isStopGame = true;
-        } elseif ((!$isNumEven && $answer === 'yes') || $isAnswerAny) {
-            $text1 = 'yes';
-            $text2 = 'no';
-            $isStopGame = true;
-        }
-
-        if ($isStopGame) {
+        if (isWrongAnswer($isNumEven, $answer, $isAnswerAny)) {
+            list($text1, $text2) = getWrongText($isNumEven, $answer, $isAnswerAny);
             line("'%s' is wrong answer ;(. Correct answer was '%s'.", $text1, $text2);
             line('Let\'s try again, %s!', $userName);
 
@@ -53,4 +41,28 @@ function runBrainEven()
             line('Congratulations, %s!', $userName);
         }
     }
+}
+
+function isWrongAnswer(int $isNumEven, string $answer, bool $isAnswerAny): bool
+{
+    return $isAnswerAny || (!$isNumEven && $answer === 'yes') || ($isNumEven && $answer === 'no');
+}
+
+function isAnswerAny(string $answer): bool
+{
+    $allowAnswers = ['yes', 'no'];
+    return !in_array($answer, $allowAnswers);
+}
+
+function getWrongText(int $isNumEven, string $answer, bool $isAnswerAny): array
+{
+    if ($isAnswerAny || (!$isNumEven && $answer === 'yes')) {
+        return ['yes', 'no'];
+    }
+
+    if ($isNumEven && $answer === 'no') {
+        return ['no', 'yes'];
+    }
+
+    return ['', ''];
 }
