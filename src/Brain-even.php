@@ -11,7 +11,6 @@ use function cli\prompt;
 function runBrainEven()
 {
     $runGame = true;
-    $isEndGame = false;
     $countCorrectAnswers = 0;
     $numberCorrectAnswers = 3;
     $allowAnswers = ['yes', 'no'];
@@ -26,16 +25,14 @@ function runBrainEven()
         line('Question: %s', $randomNum);
         $answer = trim(prompt('Your answer'));
 
-        $isAnswerYes = $answer === 'yes';
-        $isAnswerNo = $answer === 'no';
         $isAnswerAny = !in_array($answer, $allowAnswers);
         $isStopGame = false;
 
-        if ($isNumEven && $isAnswerNo) {
+        if ($isNumEven && $answer === 'no') {
             $text1 = 'no';
             $text2 = 'yes';
             $isStopGame = true;
-        } elseif ((!$isNumEven && $isAnswerYes) || $isAnswerAny) {
+        } elseif ((!$isNumEven && $answer === 'yes') || $isAnswerAny) {
             $text1 = 'yes';
             $text2 = 'no';
             $isStopGame = true;
@@ -53,11 +50,7 @@ function runBrainEven()
 
         if ($countCorrectAnswers === $numberCorrectAnswers) {
             $runGame = false;
-            $isEndGame = true;
+            line('Congratulations, %s!', $userName);
         }
-    }
-
-    if ($isEndGame) {
-        line('Congratulations, %s!', $userName);
     }
 }
