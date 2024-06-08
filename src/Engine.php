@@ -119,11 +119,7 @@ function calculate(int $number, string $operation, int $number2): int
             $result = $number * $number2;
             break;
         case '/':
-            if ($number2 !== 0) {
-                $result = $number / $number2;
-            } else {
-                $result = 0;
-            }
+            $result = $number / $number2;
             break;
         default:
             $result = 0;
