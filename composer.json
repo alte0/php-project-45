@@ -12,7 +12,8 @@
     "files": [
       "src/Cli.php",
       "src/Engine.php",
-      "src/Brain-even.php"
+      "src/Games/BrainEven.php",
+      "src/Games/BrainCalc.php"
     ]
   },
   "authors": [

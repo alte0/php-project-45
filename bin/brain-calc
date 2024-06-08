@@ -13,4 +13,4 @@ if (file_exists($autoloadPath1)) {
 
 require_once $autoloadPath;
 
-\BrainGames\Even\runGameEven();
+\BrainGames\Calc\runGameCalc();
