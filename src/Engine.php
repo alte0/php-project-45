@@ -132,3 +132,48 @@ function calculate(int $number, string $operation, int $number2): int
 
     return $result;
 }
+
+/** Получение наибольшего общего делителя
+ * @param int $number1
+ * @param int $number2
+ * @return int
+ */
+function getGCD(int $number1, int $number2): int
+{
+    $maxNumber = \max($number1, $number2);
+    $minNumber = \min($number1, $number2);
+
+    return calculateMostCommonDivisorByTwoNumbers($maxNumber, $minNumber);
+}
+
+/** Вычисление наибольшего общего делителя из 2 чисел
+ * @param int $number1 наибольшее из чисел
+ * @param int $number2 наименьшее из чисел
+ * @return int
+ */
+function calculateMostCommonDivisorByTwoNumbers(int $number1, int $number2): int
+{
+    $remainder = $number1 % $number2;
+
+    if ($remainder === 0) {
+        return $number2;
+    } else {
+        $remainder = calculateMostCommonDivisorByTwoNumbers($number2, $remainder);
+    }
+
+    return $remainder;
+}
+
+/** Общее условие для чисел
+ * @param string $answer
+ * @param int $result
+ * @return array|int[]
+ */
+function generalComparisonResult(string $answer, int $result): array
+{
+    if ((int)$answer !== $result) {
+        return [$answer, $result];
+    }
+
+    return [];
+}

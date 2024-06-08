@@ -22,13 +22,5 @@ function runGameCalc()
         return [$question, $result];
     };
 
-    $conditionResult = function ($answer, $result) {
-        if ((int)$answer !== $result) {
-            return [$answer, $result];
-        }
-
-        return [];
-    };
-
-    runGame($nameGame, $generateQuestionAndResult, $conditionResult);
+    runGame($nameGame, $generateQuestionAndResult, '\BrainGames\Engine\generalComparisonResult');
 }

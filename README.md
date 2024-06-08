@@ -4,3 +4,4 @@
 
 1) Brain Even [![asciicast](https://asciinema.org/a/TIwKqPw5BCUsk5eEPmvqR4tj8.svg)](https://asciinema.org/a/TIwKqPw5BCUsk5eEPmvqR4tj8)
 2) Brain Calc [![asciicast](https://asciinema.org/a/fLKgXJxIYN8rY3jKzc8CbxDjl.svg)](https://asciinema.org/a/fLKgXJxIYN8rY3jKzc8CbxDjl)
+3) Brain GCD  [![asciicast](https://asciinema.org/a/FjnU40wfnJYI06MTwrp3ijtQ1.svg)](https://asciinema.org/a/FjnU40wfnJYI06MTwrp3ijtQ1)
