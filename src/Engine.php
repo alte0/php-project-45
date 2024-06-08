@@ -108,12 +108,6 @@ function getRandomOneElemFromArray(array $arr = []): string
  */
 function calculate(int $number, string $operation, int $number2): int
 {
-    $result = 0;
-
-    if (empty($operation)) {
-        return $result;
-    }
-
     switch ($operation) {
         case '+':
             $result = $number + $number2;
@@ -127,7 +121,12 @@ function calculate(int $number, string $operation, int $number2): int
         case '/':
             if ($number2 !== 0) {
                 $result = $number / $number2;
+            } else {
+                $result = 0;
             }
+            break;
+        default:
+            $result = 0;
             break;
     }
 
