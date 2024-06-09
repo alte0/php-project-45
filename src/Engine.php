@@ -23,10 +23,8 @@ function runGame(string $nameGame, callable $fn, callable $fn2, int $numberCorre
     while ($runGame) {
         list($question, $result) = \call_user_func($fn);
 
-        if ($question && $result) {
-            $answer = getAnswerByQuestion($question);
-            $text = \call_user_func($fn2, $answer, $result);
-        }
+        $answer = getAnswerByQuestion($question);
+        $text = \call_user_func($fn2, $answer, $result);
 
         if (!empty($text)) {
             list($text1, $text2) = $text;
