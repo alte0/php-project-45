@@ -91,13 +91,24 @@ function isNumberEven(int $number): bool
 
 /** Случайный элемент из массива
  * @param array $arr
- * @return string
+ * @return mixed
  */
-function getRandomOneElemFromArray(array $arr = []): string
+function getRandomOneElemFromArray(array $arr = [])
 {
     $index = array_rand($arr, 1);
 
     return $arr[$index];
+}
+
+/** Случайный элемент из массива с его случайным индексом
+ * @param array $arr
+ * @return array элемент и индекс
+ */
+function getRandomOneElemAndIndexFromArray(array $arr = []): array
+{
+    $index = array_rand($arr, 1);
+
+    return [$arr[$index], $index];
 }
 
 /** Калькулятор
@@ -172,4 +183,23 @@ function generalComparisonResult(string $answer, int $result): array
     }
 
     return [];
+}
+
+/** Получение массива с арифметической прогрессией и разностью арифметической прогрессии
+ * @return array
+ */
+function getArithmeticProgression(): array
+{
+    $lengthProgression = getRandomNumber(5, 10);
+    $firstMemberProgression = getRandomNumber(1, 50);
+    $differenceArithmeticProgression = getRandomNumber(-5, 5);
+    $prevMemberProgression = $firstMemberProgression;
+    $arr = [];
+
+    for ($i = 0; $i < $lengthProgression; $i++) {
+        $prevMemberProgression = $prevMemberProgression + $differenceArithmeticProgression;
+        $arr[] = $prevMemberProgression;
+    }
+
+    return $arr;
 }

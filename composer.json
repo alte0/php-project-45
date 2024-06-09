@@ -3,7 +3,8 @@
   "bin": [
     "bin/brain-games",
     "bin/brain-even",
-    "bin/brain-gcd"
+    "bin/brain-gcd",
+    "bin/brain-progression"
   ],
   "type": "library",
   "autoload": {
@@ -15,7 +16,8 @@
       "src/Engine.php",
       "src/Games/BrainEven.php",
       "src/Games/BrainCalc.php",
-      "src/Games/BrainGCD.php"
+      "src/Games/BrainGCD.php",
+      "src/Games/BrainProgression.php"
     ]
   },
   "authors": [
