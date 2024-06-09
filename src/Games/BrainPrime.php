@@ -1,19 +1,20 @@
 <?php
 
-namespace BrainGames\Even;
+namespace BrainGames\Prime;
 
 use function BrainGames\Engine\getRandomNumber;
-use function BrainGames\Engine\isNumberEven;
+use function BrainGames\Engine\isPrimeNumber;
 use function BrainGames\Engine\runGame;
 
-function runGameEven()
+function runGamePrime()
 {
-    $nameGame = 'Answer "yes" if the number is even, otherwise answer "no".';
+    $nameGame = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
     $generateQuestionAndResult = function () {
-        $randomNum = getRandomNumber();
-        $question = "{$randomNum}";
-        $result = isNumberEven($randomNum);
+        $number = getRandomNumber(1, 10);
+
+        $question = $number;
+        $result = isPrimeNumber($number);
 
         return [$question, $result];
     };

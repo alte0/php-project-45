@@ -183,6 +183,62 @@ function generalComparisonResult(string $answer, int $result): array
     return [];
 }
 
+/** Проверка ответов по yes или no
+ * @param string $answer
+ * @param bool $result
+ * @return array|string[]
+ */
+function comparisonResultByYesOrNo(string $answer, bool $result): array
+{
+    $isAnswerAny = isAnswerAny($answer);
+
+    if (isWrongAnswer($result, $answer, $isAnswerAny)) {
+        return getTextForWrongAnswer($result, $answer, $isAnswerAny);
+    }
+
+    return [];
+}
+
+/** Проверка на не правильный ответ
+ * @param bool $isResult
+ * @param string $answer
+ * @param bool $isAnswerAny
+ * @return bool
+ */
+function isWrongAnswer(bool $isResult, string $answer, bool $isAnswerAny): bool
+{
+    return $isAnswerAny || (!$isResult && $answer === 'yes') || ($isResult && $answer === 'no');
+}
+
+/** Проверка на ответ из не списка
+ * @param string $answer
+ * @return bool
+ */
+function isAnswerAny(string $answer): bool
+{
+    $allowAnswers = ['yes', 'no'];
+    return !\in_array($answer, $allowAnswers);
+}
+
+/** Получение текста для не правильного ответа
+ * @param bool $isResult
+ * @param string $answer
+ * @param bool $isAnswerAny
+ * @return string[]
+ */
+function getTextForWrongAnswer(bool $isResult, string $answer, bool $isAnswerAny): array
+{
+    if ($isAnswerAny || (!$isResult && $answer === 'yes')) {
+        return ['yes', 'no'];
+    }
+
+    if ($isResult && $answer === 'no') {
+        return ['no', 'yes'];
+    }
+
+    return [];
+}
+
 /** Получение массива с арифметической прогрессией и разностью арифметической прогрессии
  * @return array
  */
@@ -200,4 +256,29 @@ function getArithmeticProgression(): array
     }
 
     return $arr;
+}
+
+/** Простое ли число
+ * @param int $number
+ * @return bool
+ */
+function isPrimeNumber(int $number): bool
+{
+    if ($number == 2) {
+        return true;
+    }
+
+    if (($number == 1) || ($number % 2 == 0)) {
+        return false;
+    }
+
+    $ceil = \ceil(\sqrt($number));
+
+    for ($i = 3; $i <= $ceil; $i = $i + 2) {
+        if ($number % $i == 0) {
+            return false;
+        }
+    }
+
+    return true;
 }

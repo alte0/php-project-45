@@ -6,3 +6,4 @@
 2) Brain Calc [![asciicast](https://asciinema.org/a/fLKgXJxIYN8rY3jKzc8CbxDjl.svg)](https://asciinema.org/a/fLKgXJxIYN8rY3jKzc8CbxDjl)
 3) Brain GCD  [![asciicast](https://asciinema.org/a/FjnU40wfnJYI06MTwrp3ijtQ1.svg)](https://asciinema.org/a/FjnU40wfnJYI06MTwrp3ijtQ1)
 4) Brain Progression [![asciicast](https://asciinema.org/a/kxVaScv0mShF5BR9EwTE8ieRr.svg)](https://asciinema.org/a/kxVaScv0mShF5BR9EwTE8ieRr)
+5) Brain Prime [![asciicast](https://asciinema.org/a/SE7FAcSUHGx4issHyloMQXtA4.svg)](https://asciinema.org/a/SE7FAcSUHGx4issHyloMQXtA4)
