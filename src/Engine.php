@@ -26,7 +26,7 @@ function runGame(string $nameGame, callable $fn, callable $fn2, int $numberCorre
         $answer = getAnswerByQuestion($question);
         $text = \call_user_func($fn2, $answer, $result);
 
-        if (!empty($text)) {
+        if (is_array($text) && count($text)) {
             list($text1, $text2) = $text;
             line("'%s' is wrong answer ;(. Correct answer was '%s'.", $text1, $text2);
             line('Let\'s try again, %s!', $userName);
@@ -57,10 +57,10 @@ function greeting(): string
 }
 
 /** Получение ответа на вопрос
- * @param $question
+ * @param string $question
  * @return string
  */
-function getAnswerByQuestion($question): string
+function getAnswerByQuestion(string $question): string
 {
 
     line('Question: %s', $question);
@@ -217,7 +217,7 @@ function isWrongAnswer(bool $isResult, string $answer, bool $isAnswerAny): bool
 function isAnswerAny(string $answer): bool
 {
     $allowAnswers = ['yes', 'no'];
-    return !\in_array($answer, $allowAnswers);
+    return !\in_array($answer, $allowAnswers, true);
 }
 
 /** Получение текста для не правильного ответа
