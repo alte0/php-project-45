@@ -26,7 +26,7 @@ function runGame(string $nameGame, callable $fn, callable $fn2, int $numberCorre
         $answer = getAnswerByQuestion($question);
         $text = \call_user_func($fn2, $answer, $result);
 
-        if (is_array($text) && count($text)) {
+        if (is_array($text) && count($text) > 0) {
             list($text1, $text2) = $text;
             line("'%s' is wrong answer ;(. Correct answer was '%s'.", $text1, $text2);
             line('Let\'s try again, %s!', $userName);
